@@ -46,7 +46,16 @@ options[:repo_regex] = '.*' if options[:repo_regex].nil?
 util = OctokitUtils.new(options[:oauth])
 repos = util.list_repos(options[:namespace], options)
 
-wanted_labels = [{:name=>'needs-squash', :color=>'bfe5bf'}, {:name=>'needs-rebase', :color=>'207de5'}, {:name=>'needs-tests', :color=>'f7c6c7'}, {:name=>'needs-docs', :color=>'006b75'}, {:name=>'bugfix', :color=>'009800'}, {:name=>'feature', :color=>'0052cc'}, {:name=>'tests-fail', :color=>'e11d21'}, {:name=>'backwards-incompatible', :color=>'eb6420'}]
+wanted_labels = [{:name=>'needs-rebase', :color=>'207de5'},
+                 {:name=>'needs-tests', :color=>'f7c6c7'},
+                 {:name=>'needs-docs', :color=>'006b75'},
+                 {:name=>'bug', :color=>'fc2929'},
+                 {:name=>'enhancement', :color=>'0052cc'},
+                 {:name=>'tests-fail', :color=>'e11d21'},
+                 {:name=>'backwards-incompatible', :color=>'eb6420'},
+                 {:name=>'help wanted', :color=>'159818'},
+                 {:name=>'beginner friendly', :color=>'d4c5f9'},
+                ]
 
 label_names = []
 wanted_labels.each do |wanted_label|
