@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'octokit'
+require 'pry'
 
 class OctokitUtils
   attr_accessor :client
@@ -265,6 +266,7 @@ class OctokitUtils
 
   def puppet_organisation_members(prs)
     owner = prs.first.base.repo.owner
+    #binding.pry
     if owner.type == 'User'
       members = { owner.login => :owner }
     else
